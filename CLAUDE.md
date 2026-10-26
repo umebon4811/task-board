@@ -6,7 +6,25 @@
 
 task-board: タスク管理ボードアプリケーション。
 
-<!-- 技術スタック・ディレクトリ構成・セットアップ手順・開発コマンドは、決まり次第ここに追記する -->
+### 技術スタック
+
+- React 19 + Vite（JavaScript / JSX）
+- スタイルは素の CSS（`src/App.css`）
+- タスクはブラウザの localStorage（キー: `task-board.tasks`）に保存する
+
+### ディレクトリ構成
+
+- `index.html` … エントリーの HTML
+- `src/main.jsx` … React のマウント
+- `src/App.jsx` … タスクボード本体（追加・完了切り替え・削除）
+- `src/App.css` … スタイル
+
+### 開発コマンド
+
+- `npm install` … 依存パッケージのインストール
+- `npm run dev` … 開発サーバー起動（http://localhost:5173）
+- `npm run build` … 本番ビルド（`dist/` に出力）
+- `npm run preview` … ビルド結果の確認
 
 ## コミュニケーション
 

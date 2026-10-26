@@ -6,18 +6,13 @@
 
 task-board: タスク管理ボードアプリケーション。
 
-### 技術スタック
-
-- React 19 + Vite（JavaScript / JSX）
-- スタイルは素の CSS（`src/App.css`）
-- タスクはブラウザの localStorage（キー: `task-board.tasks`）に保存する
-
 ### ディレクトリ構成
 
 - `index.html` … エントリーの HTML
 - `src/main.jsx` … React のマウント
 - `src/App.jsx` … タスクボード本体（追加・完了切り替え・削除）
 - `src/App.css` … スタイル
+- `.github/workflows/deploy.yml` … GitHub Pages への自動デプロイ
 
 ### 開発コマンド
 
@@ -26,11 +21,47 @@ task-board: タスク管理ボードアプリケーション。
 - `npm run build` … 本番ビルド（`dist/` に出力）
 - `npm run preview` … ビルド結果の確認
 
-### 公開（GitHub Pages）
+## 技術スタック
 
-- 公開URL: https://umebon4811.github.io/task-board/
+| 分類 | 使用技術 |
+|---|---|
+| UI ライブラリ | React 19（`react` / `react-dom`） |
+| ビルドツール | Vite 8 + `@vitejs/plugin-react` |
+| 言語 | JavaScript（JSX）。TypeScript は使っていない |
+| スタイル | 素の CSS（`src/App.css`）。CSS フレームワーク・CSS-in-JS は使っていない |
+| 状態管理 | React の `useState` / `useEffect` のみ。外部ライブラリは使っていない |
+| データ保存 | ブラウザの localStorage（キー: `task-board.tasks`）。サーバー・DB はない |
+| 実行環境 | Node.js 24（CI も同じバージョン） |
+| ホスティング | GitHub Pages（GitHub Actions でビルド・デプロイ） |
+
+- 新しいライブラリを追加するときは、本当に必要かを先にユーザーに確認する
+
+## デプロイ先
+
+https://umebon4811.github.io/task-board/
+
 - `main` へのプッシュで `.github/workflows/deploy.yml` が動き、自動でビルド・公開される
 - ビルド時の `base` は `/task-board/`（`vite.config.js`）。リポジトリ名を変えたらここも合わせる
+
+## コンポーネントの命名規約
+
+現在のコード（`src/App.jsx`）に合わせた規約。新しいコードもこれに従う。
+
+| 対象 | 規約 | 例 |
+|---|---|---|
+| コンポーネント名 | PascalCase | `App`, `TaskItem` |
+| コンポーネントのファイル | コンポーネント名と同じ PascalCase + `.jsx`（1ファイル1コンポーネント） | `App.jsx`, `TaskItem.jsx` |
+| コンポーネントの定義 | `function` 宣言 + `export default` | `export default function App() {}` |
+| イベント処理の関数 | 動詞 + 名詞の camelCase | `addTask`, `toggleTask`, `deleteTask` |
+| props で渡すイベント | `on` + 動詞 | `onToggle`, `onDelete` |
+| state | 名詞の camelCase。更新関数は `set` + 名前 | `tasks` / `setTasks` |
+| 真偽値 | 状態を表す形容詞・過去分詞 | `done` |
+| 定数 | UPPER_SNAKE_CASE | `STORAGE_KEY` |
+| CSS クラス | kebab-case。状態は別クラスで足す | `task-list`, `add-form`, `task done` |
+| CSS ファイル | 対応するコンポーネントと同じ名前 | `App.css` |
+
+- コンポーネントを分けるときは `src/components/` に置く
+- 画面に出す文言・コメントは日本語で書く
 
 ## コミュニケーション
 

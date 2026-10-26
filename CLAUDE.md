@@ -26,6 +26,12 @@ task-board: タスク管理ボードアプリケーション。
 - `npm run build` … 本番ビルド（`dist/` に出力）
 - `npm run preview` … ビルド結果の確認
 
+### 公開（GitHub Pages）
+
+- 公開URL: https://umebon4811.github.io/task-board/
+- `main` へのプッシュで `.github/workflows/deploy.yml` が動き、自動でビルド・公開される
+- ビルド時の `base` は `/task-board/`（`vite.config.js`）。リポジトリ名を変えたらここも合わせる
+
 ## コミュニケーション
 
 - 応答・コミットメッセージ・コード内コメントは日本語で書く。

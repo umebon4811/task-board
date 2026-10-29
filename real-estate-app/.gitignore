@@ -1,7 +1,0 @@
-node_modules
-dist
-# Supabase の接続情報はコミットしない
-.env
-.env.*
-!.env.example
-*.log

@@ -125,11 +125,93 @@ button {
   font-size: 0.9rem;
 }
 
-.logout-button {
+/* 共通ボタン */
+.primary-button,
+.secondary-button,
+.danger-button {
   padding: 8px 14px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.primary-button {
+  background: #2563eb;
+  color: #fff;
+  font-weight: bold;
+}
+
+.secondary-button {
+  background: #fff;
+  border-color: #ccc;
+}
+
+.danger-button {
+  background: #fff;
+  border-color: #e5a5a5;
+  color: #c62828;
+}
+
+.primary-button:disabled,
+.secondary-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.add-button {
+  margin-bottom: 16px;
+}
+
+.add-panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  max-width: 420px;
+}
+
+.add-panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+/* 物件の登録・編集フォーム */
+.property-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.property-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.property-form input {
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background: #fff;
+  font-size: 1rem;
+}
+
+.form-buttons,
+.card-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.card-buttons {
+  margin-top: 16px;
+}
+
+.page-error {
+  margin-bottom: 16px;
+}
+
+.empty {
+  color: #666;
 }
 
 .property-list {
@@ -170,4 +252,16 @@ button {
   margin: 0;
   color: #555;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.property-layout {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e8eefc;
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: bold;
 }

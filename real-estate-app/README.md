@@ -5,8 +5,9 @@ Supabase 認証付きの物件一覧アプリ（React + Vite）。
 ## セットアップ
 
 1. `.env.example` を `.env` にコピーし、Supabase の Project URL と Publishable key を設定する
-2. `npm install`
-3. `npm run dev` で http://localhost:5173 を開く
+2. Supabase ダッシュボードの SQL Editor で `supabase/schema.sql` を実行し、`properties` テーブルと RLS ポリシーを作成する
+3. `npm install`
+4. `npm run dev` で http://localhost:5173 を開く
 
 ## 画面
 
